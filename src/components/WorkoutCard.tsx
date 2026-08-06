@@ -15,50 +15,44 @@ type WorkoutCardProps = {
 export default function WorkoutCard({ title, duration, calories, icon, onPress }: WorkoutCardProps) {
     const [favourite, setFavourite] = useState(false);
     return (
-        <TouchableOpacity style={styles.card} onPress={onPress}>
-            <View style={styles.iconCircle}>
-                <Ionicons name={icon} size={26} color="#F0778A" />
-            </View>
+        <View style={styles.cardOutline}>
+            <TouchableOpacity style={styles.card} onPress={onPress}>
+                <View style={styles.iconCircle}>
+                    <Ionicons name={icon} size={26} color="#F0778A" />
+                </View>
 
-            <View style={styles.middle}>
-                <Text style={styles.title}>{title}</Text>
-                <Text style={styles.duration}>{duration}</Text>
-            </View>
+                <View style={styles.middle}>
+                    <Text style={styles.title}>{title}</Text>
+                    <Text style={styles.duration}>{duration}</Text>
+                </View>
 
-            <View style={styles.right}>
-                <TouchableOpacity onPress={() => setFavourite(!favourite)}>
-                    <Ionicons
-                        name={favourite ? "heart" : "heart-outline"}
-                        size={22}
-                        color="#F0778A"
-                    />
-                </TouchableOpacity>
-                <Text style={styles.calories}>{calories}</Text>
-            </View>
-        </TouchableOpacity>
+                <View style={styles.right}>
+                    <TouchableOpacity onPress={() => setFavourite(!favourite)}>
+                        <Ionicons
+                            name={favourite ? "heart" : "heart-outline"}
+                            size={22}
+                            color="#F0778A"
+                        />
+                    </TouchableOpacity>
+                    <Text style={styles.calories}>{calories}</Text>
+                </View>
+            </TouchableOpacity>
+        </View>
     );
 }
 
 
 const styles = StyleSheet.create({
-    screen: {
+    cardOutline: {
         flex: 1,
-        backgroundColor: "#FFFFFF",
-        paddingHorizontal: 24,
-    },
-    header: {
-        fontSize: 18,
-        fontWeight: "700",
-        color: "#040415",
-        textAlign: "center",
-        marginVertical: 16,
+        paddingHorizontal: 15,
     },
     card: {
         height: 72,
         flexDirection: "row",
         alignItems: "center",
         borderWidth: 1.5,
-        borderColor: "rgba(191,191,191,0.2)",
+        borderColor: "#BFBFBF",
         borderRadius: 36,
         paddingLeft: 8,
         paddingRight: 24,

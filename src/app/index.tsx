@@ -1,4 +1,4 @@
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import { Text, View, StyleSheet, Image, FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
@@ -35,8 +35,11 @@ export default function Index() {
             title={item.title}
             duration={item.duration}
             calories={item.calories}
-            icon={item.icon}
-            onPress={() => {}}
+            icon={item.icon as any}
+            onPress={() => router.push({
+              pathname: '/details_screen',
+              params: { title: item.title, duration: item.duration, calories: item.calories }
+            })}
           />
           
         )}
